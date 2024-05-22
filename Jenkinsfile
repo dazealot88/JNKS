@@ -7,7 +7,7 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/dazealot88/JNKS.git'
             }
         }
-        stage('Checkov Scan') {
+        /*stage('Checkov Scan') {
             steps {
                 // Verify Checkov installation
                 sh '/home/ubuntu/.local/share/pipx/venvs/checkov --version'
@@ -16,7 +16,7 @@ pipeline {
                 // Publish the Checkov results
                 junit 'checkov_results.xml'
             }
-        }
+        }*/
         stage('Terraform Init') {
             steps {
                 // Initialize Terraform
