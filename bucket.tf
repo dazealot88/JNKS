@@ -11,7 +11,7 @@ resource "aws_s3_bucket" "Lord-Clingtong" {
 resource "aws_s3_bucket_policy" "demo-policy" {
     bucket = "Lord-Clingtong"
 
-    policy = jsondecode({
+    policy = jsonecode({
         Version = "2012-10-17"
         Statement = [
             {
