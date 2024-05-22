@@ -22,7 +22,7 @@ pipeline {
                  sh 'terraform apply -auto-approve'
              }
          }
-        /*stage('Terraform Destroy') {
+        stage('Terraform Destroy') {
             steps {
                 script {
                     dir('path/to/terraform/config') {
@@ -31,7 +31,7 @@ pipeline {
                     }
                 }
             }
-        }*/
+        }
     }
 }
 
