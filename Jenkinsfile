@@ -7,16 +7,16 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/dazealot88/JNKS.git'
             }
         }
-        /*stage('Checkov Scan') {
+        stage('Checkov Scan') {
             steps {
                 // Verify Checkov installation
-                sh './.local/bin/checkov --version'
+                sh '/home/ubuntu/.local/bin/checkov --version'
                 // Run Checkov and output results in JUnit XML format
-                sh './.local/bin/checkov -d . -o junitxml --output-file-path checkov_results.xml"'
+                sh '/home/ubuntu/.local/bin/checkov -d . -o junitxml --output-file-path checkov_results.xml"'
                 // Publish the Checkov results
                 junit 'checkov_results.xml'
             }
-        }*/
+        }
         stage('Terraform Init') {
             steps {
                 // Initialize Terraform
