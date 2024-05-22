@@ -7,16 +7,14 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/dazealot88/JNKS.git'
             }
         }
-        stage('Checkov') {
+        stage('Checkov Scan') {
             steps {
                 // Verify Checkov installation
-                sh '/var/lib/jenkins/.local/bin/checkov --version'
-                // Print the workspace directory
-                sh 'echo ${WORKSPACE}'
+                sh './.local/bin/checkov --version'
                 // Run Checkov and output results in JUnit XML format
-                sh '/var/lib/jenkins/.local/bin/checkov -d . -o junitxml --output-file-path console'
+                sh './.local/bin/checkov -d . -o junitxml --output-file-path checkov_results.xml"'
                 // Publish the Checkov results
-                junit 'console/*.xml'
+                junit 'checkov_results.xml'
             }
         }
         stage('Terraform Init') {
