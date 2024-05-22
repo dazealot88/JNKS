@@ -10,9 +10,9 @@ pipeline {
         stage('Checkov Scan') {
             steps {
                 // Verify Checkov installation
-                sh '/home/ubuntu/.local/bin/checkov --version'
+                sh '/home/ubuntu/.local/share/pipx/venvs/checkov --version'
                 // Run Checkov and output results in JUnit XML format
-                sh '/home/ubuntu/.local/bin/checkov -d . -o junitxml --output-file-path checkov_results.xml"'
+                sh '/home/ubuntu/.local/share/pipx/venvs/checkov -d . -o junitxml --output-file-path checkov_results.xml"'
                 // Publish the Checkov results
                 junit 'checkov_results.xml'
             }
