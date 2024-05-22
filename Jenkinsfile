@@ -17,13 +17,18 @@ pipeline {
                 sh 'terraform plan'
             }
         }
-         /*stage('Terraform Apply/Destroy') {
+         stage('Terraform Apply') {
              steps {
                //  input 'Deploy to AWS?'
                  sh 'terraform apply -auto-approve'
              }
-         }*/
-         stage('Terraform Apply/Destroy') {
+         }
+         stage("Sleep 60"){
+            steps{
+                sleep time: 1, unit: 'MINUTES'
+            }
+         }
+         stage('Terraform Destroy') {
              steps {
                //  input 'Destroy AWS resoureces'
                  sh 'terraform destroy -auto-approve'
