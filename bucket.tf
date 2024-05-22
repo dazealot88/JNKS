@@ -1,15 +1,15 @@
 
 //creating an s3 bucket
 
-resource "aws_s3_bucket" "Lord-Clingtong" {
-    bucket = "Lord-Clingtong"
+resource "aws_s3_bucket" "lord-llingtong" {
+    bucket = "lord-clingtong"
   
 }
 
 //adding bucket policy
 
 resource "aws_s3_bucket_policy" "demo-policy" {
-    bucket = "Lord-Clingtong"
+    bucket = "lord-clingtong"
 
     policy = jsonencode({
         Version = "2012-10-17"
